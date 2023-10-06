@@ -1,10 +1,12 @@
 #!/bin/sh
 
-ENDPOINT="http://localhost:8080/health"
+ENDPOINT="http://localhost:8080/hello"
 
-echo ${HELLO_KEY} > kv.txt
+echo ${HELLO_KEY} > /Users/kabu/kv.txt
 
-java -jar myapp-0.0.1-SNAPSHOT.jar
+cat /Users/kabu/kv.txt
+
+nohup java -jar app/demo1/target/demo1-0.0.1-SNAPSHOT.jar &
 
 # 起動中のメッセージを表示
 echo "起動中です..."
@@ -24,4 +26,4 @@ while true; do
   sleep 1
 done
 
-rm kv.txt
+rm  /Users/kabu/kv.txt
